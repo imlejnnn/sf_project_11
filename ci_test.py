@@ -3,6 +3,8 @@ import hashlib
 
 
 TESTING_URL = 'http://localhost:9889/'
+TG_BOT_TOKEN = '5819824288:AAE2O-7-F75UF-CoJODdgN9-ioFC0GTtHlA'
+CHAT_ID = 589395882
 
 
 class TestFailedException(Exception):
@@ -26,7 +28,7 @@ def check_hash_sum(res: requests.Response):
 
 
 def send_telegram_message(message):
-	pass
+	requests.get('https://api.telegram.org/bot{}/sendMessage?chat_id={}&text={}'.format(TG_BOT_TOKEN, CHAT_ID, message))
 
 
 if __name__ == '__main__':
